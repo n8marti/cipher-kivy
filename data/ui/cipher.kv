@@ -1,0 +1,61 @@
+#:kivy 2.0
+
+<CipherBoxLayout>:
+    code_options: code_options
+    text_input: text_input
+    text_output: text_output
+
+    minimum_height: 100
+    minimum_width: 300
+    spacing: 5
+    padding: [10, 10, 10, 10]
+    TextInput:
+        id: text_input
+        hint_text: 'Enter your text here.'
+        size_hint: .4, 1
+    BoxLayout:
+        spacing: 5
+        orientation: 'vertical'
+        size_hint: .2, 1
+        Button:
+            on_release: root.dropdown.open(self)
+            id: code_options
+            size_hint: 1, .1
+            text: 'Choose your code:'
+        BoxLayout:
+            spacing: 5
+            size_hint: 1, .1
+            Button:
+                text: 'Encode'
+                on_release: root.handle_encode_clicked(self)
+            Button:
+                text: 'Decode'
+                on_release: root.handle_decode_clicked(self)
+        Button:
+            text: 'Clear'
+            size_hint: 1, .1
+            on_release: root.handle_clear_clicked(self)
+        Label:
+            size_hint: 1, .6
+    TextInput:
+        id: text_output
+        size_hint: .4, 1
+        readonly: True
+
+<CustomDropDown>: # TODO: Look up how to use a Button template.
+    size_hint: 1, .1
+    Button:
+        text: 'Option 1'
+        size_hint_y: None
+        height: 45
+        on_release: root.handle_code_choice(self)
+    Button:
+        text: 'Option 2'
+        size_hint_y: None
+        height: 45
+        on_release: root.handle_code_choice(self)
+    Button:
+        text: 'Option 3'
+        size_hint_y: None
+        height: 45
+        on_release: root.handle_code_choice(self)
