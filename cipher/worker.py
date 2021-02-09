@@ -98,19 +98,24 @@ def on_button_encode_clicked(button):
 def on_button_decode_clicked(button):
     encode_or_decode_text(button)
 
-def encode_or_decode_text(button):
-    action = button.get_label()
-    entry_output.set_text('')
-    start = entry_input.get_start_iter()
-    end = entry_input.get_end_iter()
-    original_phrase = entry_input.get_text(start, end, False)
+def encode_or_decode_text(window, button):
+    action = button.text
+    # First, clear any text in the output box.
+    window.text_output.text = ''
+    # Get text in entry box.
+    original_phrase = window.text_input.text
+    # Store indexes of upper case characters.
     uppers = get_uppers(original_phrase)
+    # Set all characters to lower case for conversion.
     text_to_convert = original_phrase.lower() if original_phrase else ''
-    picked_code = code_choice.get_active_id()
+    picked_code = window.dropdown.code_type
+    # Convert text.
     converted_text = convert_text(text_to_convert, picked_code, action)
+    # Set correct upper case characters.
     output_text = set_uppers(converted_text, uppers)
     output_phrase = ''.join(output_text)
-    entry_output.set_text(output_phrase)
+    # Set encoded/decoded text in output box.
+    window.text_output.text = output_phrase
 
 def on_button_clear_clicked(button):
     entry_output.set_text('')

@@ -9,20 +9,13 @@ class Handler():
     def on_button_encode_clicked(self, window, button):
         print(f"Button 'Encode' clicked.")
         # 1. Run the "encode" function.
-        # 2. Return the result to the output_text box.
+        # 2. Return the result to the output box.
         if not window.text_input.text:
             window.text_output.text = "Please enter some text to encode."
         elif not window.dropdown.code_type:
             window.text_output.text = "Please choose your code option."
         else:
-            output = worker.convert_text(
-                # TODO: Need to use function "encode_or_decode_text" instead of "convert_text".
-                window.text_input.text,
-                window.dropdown.code_type,
-                button.text,
-                )
-            print(f"{output}")
-            window.text_output.text = output
+            worker.encode_or_decode_text(window, button)
 
     def on_button_decode_clicked(self, window, button):
         print(f"Button 'Decode' clicked.")
