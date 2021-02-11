@@ -34,7 +34,7 @@
         Button:
             text: 'Clear'
             size_hint: 1, .1
-            on_release: root.handle_clear_clicked(self)
+            on_release: root.handle_clear_clicked(self, app)
         Label:
             size_hint: 1, .6
     TextInput:
@@ -42,20 +42,18 @@
         size_hint: .4, 1
         readonly: True
 
-<CustomDropDown>: # TODO: Look up how to use a Button template.
+<DropDownButton@Button>:
+    size_hint_y: None
+    height: 45
+
+<CustomDropDown>:
     size_hint: 1, .1
-    Button:
+    DropDownButton:
         text: 'Option 1'
-        size_hint_y: None
-        height: 45
         on_release: root.handle_code_choice(self)
-    Button:
+    DropDownButton:
         text: 'Option 2'
-        size_hint_y: None
-        height: 45
         on_release: root.handle_code_choice(self)
-    Button:
+    DropDownButton:
         text: 'Option 3'
-        size_hint_y: None
-        height: 45
         on_release: root.handle_code_choice(self)
