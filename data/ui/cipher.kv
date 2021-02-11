@@ -36,8 +36,8 @@
             text: 'Clear'
             size_hint: 1, .1
             on_release: root.handle_clear_clicked(self)
-        Label:
-            size_hint: 1, .6
+        Image:
+            source: root.image
     TextInput:
         id: text_output
         size_hint: .4, 1

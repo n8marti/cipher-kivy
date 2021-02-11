@@ -7,6 +7,7 @@ from kivy.app import App
 from kivy.properties import ObjectProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.dropdown import DropDown
+from kivy.uix.image import Image
 from pathlib import Path
 
 # Add app's parent directory to PYTHONPATH.
@@ -31,7 +32,7 @@ class CipherBoxLayout(BoxLayout):
     text_input = ObjectProperty(None)
     text_output = ObjectProperty(None)
     code_options = ObjectProperty(None)
-    #dropdown = CustomDropDown()
+    image = "../data/icons/cipher.ico"
 
     def __init__(self, **kwargs):
         super(CipherBoxLayout, self).__init__()
