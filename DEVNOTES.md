@@ -1,8 +1,8 @@
 # Developer Notes
 
-1. Ensure that python3-venv is installed.
+1. Ensure that APT dependencies are installed.
 ```shell
-$ sudo apt install python3-venv
+$ sudo apt install python3-venv libffi-dev libssl-dev
 ```
 1. Clone repo.
 ```shell
@@ -20,9 +20,12 @@ $ python3 -m venv env
 ```shell
 $ source env/bin/activate
 ```
-1. Install wheel, kivy[base], buildozer.
+1. Setup env from requirements.txt.
 ```shell
-(env) $ pip3 install wheel
-(env) $ pip3 install kivy[base]
-(env) $ pip3 install buildozer
+(env) $ pip3 install --requirement requirements.txt
+```
+1. Build APK package.
+```shell
+# First run will download Android SDK, NDK, etc. (~1 GB)
+(env) $ buildozer android debug deploy run
 ```
