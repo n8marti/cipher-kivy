@@ -32,7 +32,7 @@ class CipherBoxLayout(BoxLayout):
     text_input = ObjectProperty(None)
     text_output = ObjectProperty(None)
     code_options = ObjectProperty(None)
-    image = "../data/icons/cipher.ico"
+    image = "../data/icons/cipher.png"
 
     def __init__(self, **kwargs):
         super(CipherBoxLayout, self).__init__()
