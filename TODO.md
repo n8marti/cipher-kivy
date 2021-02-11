@@ -1,8 +1,8 @@
 # ToDo List
 - [x] Get all buttons to work.
-- [ ] Make code choice dropdown disappear on selection.
-- [ ] Change code choice button text to show selected code.
-- [ ] Reset code choice when clear button is clicked.
+- [x] Make code choice dropdown disappear on selection.
+- [x] Change code choice button text to show selected code.
+- [x] Reset code choice (variable and button text) when clear button is clicked.
 - [ ] Add cipher icon to window under buttons.
 - [ ] Build it for Android (and Linux and Windows?)
 - [ ] Consider whether it runs full screen on Android.

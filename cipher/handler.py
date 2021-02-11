@@ -3,8 +3,18 @@ import worker
 class Handler():
 
     def on_button_code_choice_clicked(self, dropdown, button):
+        # Set code type property.
         dropdown.code_type = button.text
+        # Set button text to code_type.
+        for child in dropdown.parent.children:
+            try:
+                child.code_options.text = button.text
+            except AttributeError:
+                pass
+        # Make dropdown disappear.
+        dropdown.dismiss()
         print(f"Using code '{dropdown.code_type}'.")
+        return button.text
 
     def on_button_encode_or_decode_clicked(self, window, button):
         # Ensure there is text to encode or decode.
@@ -20,3 +30,6 @@ class Handler():
         # Reset the text in the TextInput and TextOutput boxes.
         window.text_input.text = ''
         window.text_output.text = ''
+        # Reset the text on the code choice button and clear code type variable.
+        window.code_options.text = 'Choose your code:'
+        window.dropdown.code_type = ''

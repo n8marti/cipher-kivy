@@ -4,6 +4,7 @@
     code_options: code_options
     text_input: text_input
     text_output: text_output
+    #dropdown: dropdown
 
     minimum_height: 100
     minimum_width: 300
@@ -34,7 +35,7 @@
         Button:
             text: 'Clear'
             size_hint: 1, .1
-            on_release: root.handle_clear_clicked(self, app)
+            on_release: root.handle_clear_clicked(self)
         Label:
             size_hint: 1, .6
     TextInput:
