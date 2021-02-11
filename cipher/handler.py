@@ -6,19 +6,15 @@ class Handler():
         dropdown.code_type = button.text
         print(f"Using code '{dropdown.code_type}'.")
 
-    def on_button_encode_clicked(self, window, button):
-        print(f"Button 'Encode' clicked.")
-        # 1. Run the "encode" function.
-        # 2. Return the result to the output box.
+    def on_button_encode_or_decode_clicked(self, window, button):
+        # Ensure there is text to encode or decode.
         if not window.text_input.text:
-            window.text_output.text = "Please enter some text to encode."
+            window.text_output.text = "Please enter some text to encode or decode."
+        # Ensure that a code option has been selected.
         elif not window.dropdown.code_type:
             window.text_output.text = "Please choose your code option."
         else:
             worker.encode_or_decode_text(window, button)
-
-    def on_button_decode_clicked(self, window, button):
-        print(f"Button 'Decode' clicked.")
 
     def on_button_clear_clicked(self, window, button):
         # Reset the text in the TextInput and TextOutput boxes.

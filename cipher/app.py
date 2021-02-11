@@ -37,11 +37,8 @@ class CipherBoxLayout(BoxLayout):
     def handle_clear_clicked(self, button):
         Handler().on_button_clear_clicked(self, button)
 
-    def handle_encode_clicked(self, button):
-        Handler().on_button_encode_clicked(self, button)
-
-    def handle_decode_clicked(self, button):
-        Handler().on_button_decode_clicked(self, button)
+    def handle_encode_or_decode_clicked(self, button):
+        Handler().on_button_encode_or_decode_clicked(self, button)
 
     text_input = ObjectProperty(None)
     text_output = ObjectProperty(None)

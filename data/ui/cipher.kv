@@ -27,10 +27,10 @@
             size_hint: 1, .1
             Button:
                 text: 'Encode'
-                on_release: root.handle_encode_clicked(self)
+                on_release: root.handle_encode_or_decode_clicked(self)
             Button:
                 text: 'Decode'
-                on_release: root.handle_decode_clicked(self)
+                on_release: root.handle_encode_or_decode_clicked(self)
         Button:
             text: 'Clear'
             size_hint: 1, .1
