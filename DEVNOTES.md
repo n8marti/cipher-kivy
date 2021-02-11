@@ -20,8 +20,9 @@ $ python3 -m venv env
 ```shell
 $ source env/bin/activate
 ```
-1. Install wheel, kivy[base].
+1. Install wheel, kivy[base], buildozer.
 ```shell
 (env) $ pip3 install wheel
 (env) $ pip3 install kivy[base]
+(env) $ pip3 install buildozer
 ```
