@@ -4,7 +4,7 @@
 - [x] Change code choice button text to show selected code.
 - [x] Reset code choice (variable and button text) when clear button is clicked.
 - [x] Add cipher icon to window under buttons.
-- [ ] Build it for Android (and Linux and Windows?)
+- [x] Build it for Android (and Linux and Windows?)
 - [ ] Consider whether it runs full screen on Android.
 - [ ] Test the built app:
   - [ ] on a tablet

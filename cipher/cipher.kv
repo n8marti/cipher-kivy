@@ -1,10 +1,10 @@
 #:kivy 2.0
 
+
 <CipherBoxLayout>:
     code_options: code_options
     text_input: text_input
     text_output: text_output
-    #dropdown: dropdown
 
     minimum_height: 100
     minimum_width: 300
@@ -21,11 +21,11 @@
         Button:
             on_release: root.dropdown.open(self)
             id: code_options
-            size_hint: 1, .1
+            size_hint: 1, .2
             text: 'Choose your code:'
         BoxLayout:
             spacing: 5
-            size_hint: 1, .1
+            size_hint: 1, .2
             Button:
                 text: 'Encode'
                 on_release: root.handle_encode_or_decode_clicked(self)
@@ -34,10 +34,10 @@
                 on_release: root.handle_encode_or_decode_clicked(self)
         Button:
             text: 'Clear'
-            size_hint: 1, .1
+            size_hint: 1, .2
             on_release: root.handle_clear_clicked(self)
         Image:
-            source: root.image
+            source: root.icon_path
     TextInput:
         id: text_output
         size_hint: .4, 1
@@ -45,10 +45,10 @@
 
 <DropDownButton@Button>:
     size_hint_y: None
-    height: 45
+    height: 90
 
 <CustomDropDown>:
-    size_hint: 1, .1
+    size_hint: 1, .2
     DropDownButton:
         text: 'Option 1'
         on_release: root.handle_code_choice(self)
