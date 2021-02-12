@@ -3,12 +3,10 @@ import kivy
 kivy.require('2.0.0')
 
 from kivy.app import App
-from kivy.lang.builder import Builder
 from kivy.properties import ObjectProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.dropdown import DropDown
 from kivy.uix.image import Image
-from pathlib import Path
 
 
 class Worker():
