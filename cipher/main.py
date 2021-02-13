@@ -5,7 +5,6 @@ kivy.require('2.0.0')
 from kivy.app import App
 from kivy.properties import ObjectProperty
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.dropdown import DropDown
 
 
 class Worker():
