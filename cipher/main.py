@@ -6,7 +6,6 @@ from kivy.app import App
 from kivy.properties import ObjectProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.dropdown import DropDown
-from kivy.uix.image import Image
 
 
 class Worker():
@@ -23,7 +22,6 @@ class Worker():
         'f', 'b', 'c', 'o', 'd', 'w', 'n', 'x', 'l', 'h', 'k', 'j', 'e',
         't', 'a', 'g', 'p', 'z', 'q', 'i', 'v', 'm', 'u', 's', 'y', 'r'
     ]
-
 
     def transform_text(self, text_to_convert, transformation):
         converted_text = []
@@ -107,7 +105,7 @@ class Worker():
         uppers = self.get_uppers(original_phrase)
         # Set all characters to lower case for conversion.
         text_to_convert = original_phrase.lower() if original_phrase else ''
-        picked_code = window.dropdown.code_type
+        picked_code = window.code_type
         # Convert text.
         converted_text = self.convert_text(text_to_convert, picked_code, action)
         # Set correct upper case characters.
@@ -117,61 +115,58 @@ class Worker():
         window.text_output.text = output_phrase
 
 
-class CustomDropDown(DropDown):
-
-    code_type = ObjectProperty(None)
-
-    def handle_code_choice(self, button):
-        # Set code type property.
-        self.code_type = button.text
-        # Set button text to code_type.
-        for child in self.parent.children:
-            try:
-                child.code_options.text = button.text
-            except AttributeError:
-                pass
-        # Make dropdown disappear.
-        self.dismiss()
-        print(f"Using code '{self.code_type}'.")
-        return button.text
-
-
 class CipherBoxLayout(BoxLayout):
 
     text_input = ObjectProperty(None)
     text_output = ObjectProperty(None)
-    code_options = ObjectProperty(None)
+    opt1 = ObjectProperty(None)
+    opt2 = ObjectProperty(None)
+    opt3 = ObjectProperty(None)
+    code_type = ObjectProperty(None)
     icon_path = "./cipher.png"
-
-    def __init__(self, **kwargs):
-        super(CipherBoxLayout, self).__init__()
-        self.dropdown = CustomDropDown()
 
     def handle_clear_clicked(self, button):
         # Reset the text in the TextInput and TextOutput boxes.
         self.text_input.text = ''
         self.text_output.text = ''
-        # Reset the text on the code choice button and clear code type variable.
-        self.code_options.text = 'Choose your code:'
-        self.dropdown.code_type = ''
+        # Clear code type variable.
+        self.code_type = ''
+        # Reset code_choice button states:
+        self.opt1.state = 'normal'
+        self.opt2.state = 'normal'
+        self.opt3.state = 'normal'
 
     def handle_encode_or_decode_clicked(self, button):
         # Ensure there is text to encode or decode.
         if not self.text_input.text:
             self.text_output.text = "Please enter some text to encode or decode."
         # Ensure that a code option has been selected.
-        elif not self.dropdown.code_type:
+        elif not self.code_type:
                 self.text_output.text = "Please choose your code option."
         else:
             worker = Worker()
             worker.encode_or_decode_text(self, button)
 
+    def handle_code_choice(self, button):
+        if button.state == 'down':
+            # Ensure other button states are reset to 'normal'.
+            for child in button.parent.children:
+                child.state = 'normal'
+            button.state = 'down'
+            # Set code_type property.
+            self.code_type = button.text
+        elif button.state == 'normal':
+            # Button deselected; reset code_type.
+            self.code_type = ''
+
+        print(f"Using code '{self.code_type}'.")
+        return button.text
+
 
 class CipherApp(App):
 
     def build(self):
-        self.cipherbox = CipherBoxLayout()
-        return self.cipherbox
+        return CipherBoxLayout()
 
 
 if __name__ == '__main__':

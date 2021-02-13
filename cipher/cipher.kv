@@ -1,13 +1,14 @@
 #:kivy 2.0
 
-
 <CipherBoxLayout>:
-    code_options: code_options
+    opt1: opt1
+    opt2: opt2
+    opt3: opt3
     text_input: text_input
     text_output: text_output
 
-    minimum_height: 100
-    minimum_width: 300
+    minimum_height: 600
+    minimum_width: 800
     spacing: 5
     padding: [10, 10, 10, 10]
     TextInput:
@@ -15,16 +16,40 @@
         hint_text: 'Enter your text here.'
         size_hint: .4, 1
     BoxLayout:
-        spacing: 5
+        padding: [5, 0, 5, 0]
         orientation: 'vertical'
         size_hint: .2, 1
-        Button:
-            on_release: root.dropdown.open(self)
-            id: code_options
+        Image:
+            source: root.icon_path
             size_hint: 1, .2
-            text: 'Choose your code:'
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: 1, .5
+            padding: 5
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Line:
+                    width: 1
+                    rectangle: self.x, self.y, self.width, self.height
+            Label:
+                size_hint: 1, .16
+                text: 'Choose your code:'
+            MyToggle:
+                id: opt1
+                text: 'Option 1'
+                on_press: root.handle_code_choice(self)
+            MyToggle:
+                id: opt2
+                text: 'Option 2'
+                on_press: root.handle_code_choice(self)
+            MyToggle:
+                id: opt3
+                text: 'Option 3'
+                on_press: root.handle_code_choice(self)
         BoxLayout:
             spacing: 5
+            padding: [0, 10, 0, 5]
             size_hint: 1, .2
             Button:
                 text: 'Encode'
@@ -34,27 +59,12 @@
                 on_release: root.handle_encode_or_decode_clicked(self)
         Button:
             text: 'Clear'
-            size_hint: 1, .2
+            size_hint: 1, .1
             on_release: root.handle_clear_clicked(self)
-        Image:
-            source: root.icon_path
     TextInput:
         id: text_output
         size_hint: .4, 1
         readonly: True
 
-<DropDownButton@Button>:
-    size_hint_y: None
-    height: 90
-
-<CustomDropDown>:
-    size_hint: 1, .2
-    DropDownButton:
-        text: 'Option 1'
-        on_release: root.handle_code_choice(self)
-    DropDownButton:
-        text: 'Option 2'
-        on_release: root.handle_code_choice(self)
-    DropDownButton:
-        text: 'Option 3'
-        on_release: root.handle_code_choice(self)
+<MyToggle@ToggleButton>:
+    size_hint: 1, .28
