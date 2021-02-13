@@ -6,7 +6,7 @@
 - [x] Add cipher icon to window under buttons.
 - [x] Build it for Android (and Linux and Windows?)
 - [x] Consider whether it runs full screen on Android.
-- [ ] Test the built app:
-  - [ ] on a tablet
+- [x] Test the built app:
+  - [x] on a tablet
   - [x] on a phone
-    - [ ] fix recursion error when opening dropdown
+    - [x] fix recursion error when opening dropdown
