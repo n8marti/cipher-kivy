@@ -25,12 +25,12 @@
     (env) $ pip3 install --requirement requirements.txt
     ```
 1. Run the app.
-  - EITHER: Build APK package.
-    ```shell
-    # First run will download Android SDK, NDK, etc. (~1 GB)
-    (env) $ buildozer android debug deploy run
-    ```
-  - OR: Run locally.
-    ```shell
-    (env) $ python3 cipher/main.py
-    ```
+  - EITHER: Build the APK package. (You will need a properly-configured buildozer.spec file first.)
+      ```shell
+      # First run will download Android SDK, NDK, etc. (~1 GB)
+      (env) $ buildozer android debug deploy run
+      ```
+  - OR: Run the app locally.
+      ```shell
+      (env) $ python3 cipher/main.py
+      ```
