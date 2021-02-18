@@ -24,8 +24,12 @@ $ source env/bin/activate
 ```shell
 (env) $ pip3 install --requirement requirements.txt
 ```
-1. Build APK package.
+- EITHER: Build APK package.
 ```shell
 # First run will download Android SDK, NDK, etc. (~1 GB)
 (env) $ buildozer android debug deploy run
+```
+- OR: Run locally.
+```shell
+(env) $ python3 cipher/main.py
 ```
