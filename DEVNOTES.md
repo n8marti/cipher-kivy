@@ -20,7 +20,7 @@
     ```shell
     ~/cipher-kivy$ source env/bin/activate
     ```
-1. Setup env from requirements.txt.
+1. Install enviroment dependencies from requirements.txt.
     ```shell
     (env) ~/cipher-kivy$ pip3 install --requirement requirements.txt
     ```
@@ -33,4 +33,9 @@
   - OR: Run the app locally.
     ```shell
     (env) ~/cipher-kivy$ python3 cipher/main.py
+    ```
+1. Deactivate enviroment when done.
+    ```shell
+    (env) ~/cipher-kivy$ deactivate
+    ~/cipher-kivy$
     ```
